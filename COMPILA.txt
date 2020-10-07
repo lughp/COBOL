@@ -1,0 +1,13 @@
+//%%%%%%%% JOB ,'T-REX',MSGCLASS=H,CLASS=A
+//*
+//*************************************************************************
+//* JOB DE COMPILAÇÃO DE PROGRAMA COBOL
+//* SUBSTITUA %%% NAS LINHAS 1000 E 1100 PARA INDICAR OS SEUS ARQUIVOS
+//* SUBSTITUA &&& NAS LINHAS 1000 E 1100 PARA INDICAR O NOME DO SEU PROGRAMA
+//*************************************************************************
+//*
+//STEP1    EXEC IGYWCL,LNGPRFX='IGY'
+//COBOL.SYSIN  DD DSN=SOURCE(%%%),DISP=SHR
+//LKED.SYSLMOD DD DSN=LINKLIB(&&&),DISP=SHR
+//SYSPRINT DD SYSOUT=*
+//SYSOUT   DD SYSOUT=*

@@ -1,0 +1,83 @@
+// --------------------------------------------------     
+// load reusable java code needed for                     
+//  the DB2 API, Application Program Interface            
+// --------------------------------------------------     
+import java.sql.Connection;                               
+import java.sql.DriverManager;                            
+import java.sql.ResultSet;                                
+import java.sql.SQLException;                             
+import java.sql.Statement;                                
+// --------------------------------------------------     
+// declare fields, methods, and blocks of code            
+// --------------------------------------------------     
+public class db2java                                      
+{                                                         
+// --------------------------------------------------     
+// declare a 'method' in 'class' named db2java            
+// --------------------------------------------------     
+  public static void main(String[] args)                  
+ {                                                        
+// --------------------------------------------------     
+// try block is a set of statements                       
+//  where an exception can occur                          
+// --------------------------------------------------     
+   try                                                    
+  {                                                       
+// --------------------------------------------------     
+// load the DB2 Driver                                    
+// --------------------------------------------------     
+    Class.forName("com.ibm.db2.jcc.DB2Driver");           
+// --------------------------------------------------     
+// establish a connection to DB2                          
+// --------------------------------------------------     
+    Connection db2Conn = DriverManager.getConnection      
+     ("jdbc:db2://192.86.32.91:5040/DALLASC:"             
+      + "user=z61256;" + "password=lug@1982;");           
+// --------------------------------------------------     
+// use a statement to gather data from the database       
+// --------------------------------------------------     
+     Statement st = db2Conn.createStatement();                 
+     String myQuery =                                          
+      "SELECT phonenumber from ibmuser.vphone " +              
+         "where employeenumber = '200220'";                    
+ // --------------------------------------------------         
+ // execute the query                                          
+ // --------------------------------------------------         
+     ResultSet resultSet = st.executeQuery(myQuery);           
+ // --------------------------------------------------         
+ // cycle through the resultSet                                
+ // --------------------------------------------------         
+     while (resultSet.next())                                  
+       {                                                       
+        String ephone  = resultSet.getString("phonenumber");   
+ // --------------------------------------------------         
+ // display output                                             
+ // --------------------------------------------------         
+        System.out.println("Phone:" + ephone);                 
+       }                                                       
+ // --------------------------------------------------         
+ // clean up resources                                         
+ // --------------------------------------------------         
+      resultSet.close();                                       
+      st.close();                                              
+      db2Conn.close();                                         
+ // --------------------------------------------------         
+ // close 'try' block of code                                  
+ // --------------------------------------------------         
+   }                                                           
+ // --------------------------------------------------         
+ // if execution problems, report details of problem           
+ // --------------------------------------------------         
+    catch (ClassNotFoundException cnfe)                        
+     {                                                         
+      cnfe.printStackTrace();                                  
+     }                                                         
+    catch (SQLException sqle)                                  
+     {                                                         
+      sqle.printStackTrace();            
+    }                                                     
+// --------------------------------------------------     
+// close 'main' method and 'class'                        
+// --------------------------------------------------     
+ }                                                        
+}                                                         

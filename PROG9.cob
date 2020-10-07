@@ -1,0 +1,19 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. PROG9.
+
+      *    Programa demonstra o uso do PERFORM
+
+       ENVIRONMENT DIVISION.
+       DATA DIVISION.
+       PROCEDURE DIVISION.
+
+       PROGRAM-BEGIN.
+           DISPLAY "A MENSAGEM DE HOJE EH".
+           PERFORM MINHA-MENSAGEM.
+           DISPLAY "VOCE CONCORDA?".
+
+       PROGRAM-DONE.
+           STOP RUN.
+
+       MINHA-MENSAGEM.
+           DISPLAY "PROGRAMAR EM COBOL EH LEGAL!".

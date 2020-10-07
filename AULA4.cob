@@ -1,0 +1,32 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. AULA4.
+
+       ENVIRONMENT DIVISION.
+       CONFIGURATION SECTION.
+       SPECIAL-NAMES.
+           DECIMAL-POINT IS COMMA.
+
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01  VALOR PIC 9(05) VALUE 88888.
+       01  NOME PIC X(5).
+       01  DATA-HOJE.
+           05  DIA 		PIC 9(02) VALUE 03.
+		   05  FILLER 	PIC X(01) VALUE '/'.
+           05  MES 		PIC 9(02) VALUE 08.
+		   05  FILLER 	PIC X(01) VALUE '/'.
+           05  ANO 		PIC 9(04) VALUE 2020.
+
+       PROCEDURE DIVISION.
+
+       PROGRAM-BEGIN.
+           DISPLAY VALOR.
+           MOVE 'LUCIANO' TO NOME.
+           DISPLAY NOME.
+           DISPLAY DIA.
+           DISPLAY MES.
+           DISPLAY ANO.
+           DISPLAY DATA-HOJE.
+
+       PROGRAM-DONE.
+           STOP RUN.
